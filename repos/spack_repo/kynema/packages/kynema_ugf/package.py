@@ -8,7 +8,6 @@ class KynemaUgf(bKynemaUgf, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("unit-tests", default=True, description="Activate unit tests")
 
-    depends_on("trilinos+mpi@16.2.0:")
     requires("+hypre")
     requires("+umpire", when="+hypre+cuda")
     requires("+tests", when="+cdash_submit")
