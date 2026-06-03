@@ -1,12 +1,12 @@
 diff --git a/packages/ifpack2/test/unit_tests/Ifpack2_UnitTestBlockTriDiContainerUtil.hpp b/packages/ifpack2/test/unit_tests/Ifpack2_UnitTestBlockTriDiContainerUtil.hpp
-index 7f4472e3ff9..1af2fadf09d 100644
+index 7f4472e3ff9..668cd6b4086 100644
 --- a/packages/ifpack2/test/unit_tests/Ifpack2_UnitTestBlockTriDiContainerUtil.hpp
 +++ b/packages/ifpack2/test/unit_tests/Ifpack2_UnitTestBlockTriDiContainerUtil.hpp
 @@ -15,6 +15,7 @@
  #ifndef IFPACK2_UNITTEST_BLOCKTRIDICONTAINER_UTIL_HPP
  #define IFPACK2_UNITTEST_BLOCKTRIDICONTAINER_UTIL_HPP
  
-+#include <random.h>
++#include <random>
  #include <Ifpack2_BlockRelaxation.hpp>
  #ifdef HAVE_IFPACK2_EXPERIMENTAL_KOKKOSKERNELS_FEATURES
  #include <Ifpack2_BlockTriDiContainer_decl.hpp>
