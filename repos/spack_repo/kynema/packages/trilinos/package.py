@@ -12,7 +12,9 @@ class Trilinos(bTrilinos):
     url = "https://github.com/trilinos/Trilinos/archive/refs/tags/16.2.0.tar.gz"
     variant("asan", default=False, description="Turn on address sanitizer")
 
-    patch("muelu_template_17.patch", when="@=17.1.1"
+    patch("17-1-1-muelu-template.patch", when="@=17.1.1")
+    patch("17-1-1-ifpack2-random-shuffle.patch", when="@=17.1.1")
+
     depends_on("cgns~shared", when="~shared+exodus+cuda")
 
     def flag_handler(self, name, flags):
