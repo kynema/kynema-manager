@@ -1,5 +1,5 @@
 diff --git a/packages/muelu/src/Operators/MueLu_Maxwell1_def.hpp b/packages/muelu/src/Operators/MueLu_Maxwell1_def.hpp
-index 54e41d73a97..6e753cc85ca 100644
+index 54e41d73a97..17fd9cb38f8 100644
 --- a/packages/muelu/src/Operators/MueLu_Maxwell1_def.hpp
 +++ b/packages/muelu/src/Operators/MueLu_Maxwell1_def.hpp
 @@ -354,7 +354,7 @@ void Maxwell1<Scalar, LocalOrdinal, GlobalOrdinal, Node>::compute(bool reuse) {
@@ -11,9 +11,12 @@ index 54e41d73a97..6e753cc85ca 100644
        (!precList22_.isParameter("sa: keep tentative prolongator") || !precList22_.get<bool>("sa: keep tentative prolongator")))
      precList22_.set("sa: keep tentative prolongator", true);
  
-@@ -537,7 +537,7 @@ void Maxwell1<Scalar, LocalOrdinal, GlobalOrdinal, Node>::compute(bool reuse) {
+@@ -535,9 +535,9 @@ void Maxwell1<Scalar, LocalOrdinal, GlobalOrdinal, Node>::compute(bool reuse) {
+         EdgeL->Set("NodeImporter", importer);
+       }
  
-       // We used tenative P to generate the coarse discrete gradient.
+-      // We used tenative P to generate the coarse discrete gradient.
++      // We used tentative P to generate the coarse discrete gradient.
        RCP<Matrix> NodalPtent;
 -      if (parameterList_.sublist("maxwell1: 22list").get<std::string>("multigrid algorithm") == "unsmoothed")
 +      if (parameterList_.sublist("maxwell1: 22list").template get<std::string>("multigrid algorithm") == "unsmoothed")
