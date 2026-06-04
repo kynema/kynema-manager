@@ -11,6 +11,7 @@ from spack_repo.builtin.packages.trilinos.package import Trilinos as bTrilinos
 class Trilinos(bTrilinos):
     url = "https://github.com/trilinos/Trilinos/archive/refs/tags/16.2.0.tar.gz"
     variant("asan", default=False, description="Turn on address sanitizer")
+    variant("pic", default=True, description="Position independent code")
 
     patch("17-1-1-muelu-template.patch", when="@=17.1.1")
     patch("17-1-1-ifpack2-random-shuffle.patch", when="@=17.1.1")
@@ -39,5 +40,8 @@ class Trilinos(bTrilinos):
 
         if spec.satisfies("+cuda"):
             cmake_options.append(self.define("Trilinos_ENABLE_Triutils", False))
+
+        if spec.satisfies("+pic"):
+            cmake_options.append(self.define("CMAKE_POSITION_INDEPENDENT_CODE", True))
 
         return cmake_options
