@@ -86,16 +86,23 @@ class CTestBuilder(CMakeBuilder):
             ctest = Executable(self.spec["cmake"].prefix.bin.ctest)
             ctest.add_default_env("CMAKE_BUILD_PARALLEL_LEVEL", str(make_jobs))
             with fs.working_dir(self.build_directory):
-                 build_env = os.environ.copy()
-                 output = ctest(*self.build_args, env=build_env, output=str.split, error=str.split).split("\n")
-                 errors, warnings, _ = spack.util.log_parse.parse_log_events(output)
-                 if len(errors) > 0:
-                     errs = [str(e) for e in errors]
-                     tty.warn(f"Errors: {errs}")
-                     tty.warn(f"returncode {ctest.returncode}")
-                     self.submit_cdash(pkg, spec, prefix)
-                     raise BaseException(f"{self.pkg.spec.name} had build errors")
-
+                build_env = os.environ.copy()
+                output = ctest(
+                    *self.build_args,
+                    env=build_env,
+                    output=str,
+                    error=str,
+                    fail_on_error=False,
+                )
+                if ctest.returncode != 0:
+                    errors, warnings, _ = spack.util.log_parse.parse_log_events(
+                        output.splitlines()
+                    )
+                    errs = [str(e) for e in errors]
+                    tty.warn(f"Build errors detected: {errs}")
+                    tty.warn(f"ctest returncode: {ctest.returncode}")
+                    self.submit_cdash(pkg, spec, prefix)
+                    raise InstallError(f"{self.pkg.spec.name} had build errors")
         else:
             super().build(pkg, spec, prefix)
 
