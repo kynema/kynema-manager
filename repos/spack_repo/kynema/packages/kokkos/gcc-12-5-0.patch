@@ -1,8 +1,8 @@
 diff --git a/core/src/impl/Kokkos_SharedAlloc.hpp b/core/src/impl/Kokkos_SharedAlloc.hpp
-index c068e312a..8e7657172 100644
+index 480ad1691..ccd92f811 100644
 --- a/core/src/impl/Kokkos_SharedAlloc.hpp
 +++ b/core/src/impl/Kokkos_SharedAlloc.hpp
-@@ -618,12 +618,12 @@ union SharedAllocationTracker {
+@@ -614,12 +614,12 @@ union SharedAllocationTracker {
  
    KOKKOS_FORCEINLINE_FUNCTION
  #if defined(KOKKOS_COMPILER_NVCC) || !defined(KOKKOS_COMPILER_GNU) || \
