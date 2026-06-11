@@ -3,6 +3,8 @@ from spack_repo.builtin.packages.kokkos.package import Kokkos as bKokkos
 
 class Kokkos(bKokkos):
     patch("sycl_printf.patch", when="@=4.5.01")
+    patch("gcc-12-5-0.patch", when="@=5.1.1")
+
     def cmake_args(self):
         spec = self.spec
         options = super(Kokkos, self).cmake_args()
