@@ -1,6 +1,4 @@
 packages:
-  openfast:
-    prefer: ["@4.2.1"]
   hypre:
     prefer: [build_system=cmake]
   kynema-sgf:
