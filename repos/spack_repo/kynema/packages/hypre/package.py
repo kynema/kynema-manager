@@ -1,6 +1,6 @@
 from spack.package import *
 from spack_repo.builtin.packages.hypre.package import Hypre as bHypre
-from spack_repo.hypre.packages.ctest_package.package import *
+from spack_repo.kynema.packages.ctest_package.package import *
 
 class Hypre(bHypre, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
