@@ -4,5 +4,6 @@ packages:
   kynema-sgf:
     prefer: [+tiny_profile]
   trilinos:
-    prefer: [~adelus~adios2~amesos~amesos2~anasazi+aztec~basker~belos~boost~chaco~complex~dtk~epetra~epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~float~fortran~hypre~ifpack~ifpack2~intrepid~intrepid2~ipo~isorropia~mesquite~minitensor~ml~muelu~mumps~nox~openmp~panzer~phalanx~piro~python~rol~rythmos~sacado~scorec~shards~shylu~stokhos~stratimikos~strumpack~suite-sparse~superlu-dist~teko~tempus~test~thyra~trilinoscouplings~x11~zoltan2]
-    require: "generator=ninja"
+    require: "~adelus~adios2~amesos2~anasazi~basker~belos~boost~chaco~complex+exodus~fortran~hypre~ifpack2~intrepid2+kokkos~mesquite~minitensor~muelu~mumps~nox~pamgen~panzer~phalanx~piro~python~rol~sacado~scorec+shards~shylu+stk~stokhos~stratimikos~strumpack~suite-sparse~superlu-dist~teko~tempus~thyra+tpetra~x11+zoltan~zoltan2 generator=ninja"
+
+
