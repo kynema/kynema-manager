@@ -1,3 +1,8 @@
 spack:
   specs:
   - kynema
+  - kynema-driver@main
+  - kynema-ugf@main+hypre+openfast+tioga~trilinos-solvers
+  - kynema-ugf@main+hypre+openfast+tioga+trilinos-solvers
+  - kynema-sgf@main
+  - kynema-fmb@main^netcdf-c~mpi^hdf5~mpi

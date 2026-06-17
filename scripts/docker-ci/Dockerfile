@@ -1,4 +1,4 @@
-FROM ecpe4s/ubuntu20.04-runner-x86_64:2022-05-01
+FROM ecpe4s/ubuntu24.04-runner-x86_64-gcc-13.3:1779820030
 
 ARG BUILD_DATE
 ARG COMMIT
@@ -9,7 +9,7 @@ RUN git clone --recursive https://github.com/kynema/kynema-manager \
 ENV E4S_MACHINE=1 
 ENV KYNEMA_MANAGER=/kynema-manager
 
-WORKDIR /kynema-manager/scripts
+WORKDIR /kynema-manager/scripts/docker-ci
 RUN ["/bin/bash", "./ci-creator.sh"]
 
 WORKDIR /
@@ -23,4 +23,3 @@ RUN echo export KYNEMA_MANAGER=$KYNEMA_MANAGER >> /etc/bash.bashrc \
  && echo spack-start >> /etc/bash.bashrc
 
 LABEL io.e4s.build-date=${BUILD_DATE}
-
