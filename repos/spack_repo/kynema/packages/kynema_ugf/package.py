@@ -8,6 +8,8 @@ class KynemaUgf(bKynemaUgf, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("unit-tests", default=True, description="Activate unit tests")
 
+    depends_on("openfast@5:+cxx+netcdf", when="+openfast")
+
     requires("+hypre")
     requires("+umpire", when="+hypre+cuda")
     requires("+tests", when="+cdash_submit")
