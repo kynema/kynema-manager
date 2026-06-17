@@ -1,4 +1,6 @@
 packages:
+  readline:
+    require: "@8.2"
   all:
     target: [x86_64]
     providers:
