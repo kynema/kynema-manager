@@ -77,10 +77,10 @@ machine_list = {
     "cts-sapphire": MachineData(lambda: is_cts_sapphire(socket.gethostname()), "cts-sapphire.snl.gov"),
     # NREL
     "kestrel-cpu": MachineData(
-        lambda: (os.environ["NREL_CLUSTER"] == "kestrel" and os.environ["CRAY_CPU_TARGET"] == "x86-spr"), "kestrel-cpu.hpc.nrel.gov"
+        lambda: (os.environ["LMOD_SYSTEM_NAME"] == "kestrel-cpu"), "kestrel-cpu.hpc.nrel.gov"
     ),
     "kestrel-gpu": MachineData(
-        lambda: (os.environ["NREL_CLUSTER"] == "kestrel" and os.environ["CRAY_CPU_TARGET"] == "x86-genoa"), "kestrel-gpu.hpc.nrel.gov"
+        lambda: (os.environ["LMOD_SYSTEM_NAME"] == "kestrel-gpu"), "kestrel-gpu.hpc.nrel.gov"
     ),
     "ellis": MachineData(lambda: os.environ["NREL_CLUSTER"] == "ellis", "ellis.hpc.nrel.gov"),
     "mi250": MachineData(lambda: "mi250" in socket.getfqdn(), "mi250-test.hpc.nrel.gov"),

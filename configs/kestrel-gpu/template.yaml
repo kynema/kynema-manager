@@ -4,6 +4,6 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'kynema~kynema_sgf_gpu~kynema_ugf_gpu~cuda'
-    - 'kynema+kynema_sgf_gpu~kynema_ugf_gpu+cuda cuda_arch=90'
-    - 'kynema+kynema_sgf_gpu+kynema_ugf_gpu+cuda cuda_arch=90'
+    - 'kynema-driver~kynema_sgf_gpu~kynema_ugf_gpu~cuda'
+    - 'kynema-driver+kynema_sgf_gpu~kynema_ugf_gpu+cuda cuda_arch=90'
+    - 'kynema-driver+kynema_sgf_gpu+kynema_ugf_gpu+cuda cuda_arch=90'
