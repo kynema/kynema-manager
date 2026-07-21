@@ -9,8 +9,8 @@ import glob
 import os
 import shutil
 import time
-import spack.llnl.util.filesystem as fs
-import spack.llnl.util.tty as tty
+import spack.util.filesystem as fs
+import spack.util.tty as tty
 import spack.phase_callbacks
 import spack.util.log_parse
 
