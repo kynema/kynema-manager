@@ -20,7 +20,7 @@ packages:
             cxx: /opt/rh/gcc-toolset-13/root/bin/g++
             fortran: /opt/rh/gcc-toolset-13/root/bin/gfortran
           extra_rpaths:
-          - /opt/cray/libfabric/1.22.0
+          - /opt/cray/libfabric/1.22.0/lib64
   cray-mpich:
     require: "@8.1.32"
     buildable: false
