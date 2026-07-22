@@ -5,7 +5,7 @@ import os
 import time
 import spack.main
 import spack.util.executable
-from spack.util.path import canonicalize_path as spack_path_resolve
+from spack.config import canonicalize_path as spack_path_resolve
 
 from datetime import date
 
