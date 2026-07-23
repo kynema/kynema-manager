@@ -16,11 +16,11 @@ class Trilinos(bTrilinos):
     patch("17-1-1-muelu-template.patch", when="@=17.1.1")
     patch("17-1-1-ifpack2-random-shuffle.patch", when="@=17.1.1")
 
-    depends_on("cgns~shared", when="~shared+exodus+cuda")
+    depends_on("cgns~shared+static", when="~shared+exodus+cuda")
 
     def flag_handler(self, name, flags):
         super().flag_handler(name, flags)
-        if name == "cxxflags":
+        if name == "cxxflags" or name == "cflags":
             if "+stk" in self.spec:
                 flags.append("-DUSE_STK_SIMD_NONE")
         return (flags, None, None)
@@ -29,6 +29,8 @@ class Trilinos(bTrilinos):
         spec = self.spec
         super().setup_build_environment(env)
 
+        if spec.satisfies("+stk"):
+            env.append_flags("CXXFLAGS", "-DUSE_STK_SIMD_NONE")
         if spec.satisfies("+asan"):
             env.append_flags("CXXFLAGS", "-fsanitize=address -fno-omit-frame-pointer")
             env.set("LSAN_OPTIONS", "suppressions={0}".format(join_path(self.package_dir, "sup.asan")))

@@ -1,23 +1,36 @@
 packages:
   gcc:
     externals:
-      - spec: gcc@13.1.0
+      - spec: gcc@13.3.1
         prefix: /opt/rh/gcc-toolset-13/root
         extra_attributes:
           compilers:
             c: /opt/rh/gcc-toolset-13/root/bin/gcc
             cxx: /opt/rh/gcc-toolset-13/root/bin/g++
             fortran: /opt/rh/gcc-toolset-13/root/bin/gfortran
+          extra_rpaths:
+          - /opt/cray/libfabric/1.22.0/lib64
   cray-mpich:
     require: "@=8.1.32"
     buildable: false
     externals:
-      - spec: "cray-mpich@=8.1.32%gcc@13.1.0"
+      - spec: "cray-mpich@=8.1.32%gcc@13.3.1"
         prefix: /opt/cray/pe/mpich/8.1.32/ofi/gnu/11.2
-        modules:
-          - cpe-stack/25.03
-          - PrgEnv-gnu/8.6.0
-          - libfabric/1.22.0
+  slurm:
+    buildable: false
+    externals:
+      - spec: slurm@25-05-6
+        prefix: /nopt/slurm/latest
+  libfabric:
+    buildable: false
+    externals:
+      - spec: libfabric@1.22.0
+        prefix: /opt/cray/libfabric/1.22.0
+  xpmem:
+    buildable: false
+    externals:
+      - spec: xpmem@master
+        prefix: /nopt/nlr/xpmem
   cuda:
     require: "@=12.8.1"
   boost:
@@ -29,11 +42,11 @@ packages:
   lapack:
     require: "netlib-lapack"
   c:
-    require: "gcc@13.1.0"
+    require: "gcc@13.3.1"
   cxx:
-    require: "gcc@13.1.0"
+    require: "gcc@13.3.1"
   fortran:
-    require: "gcc@13.1.0"
+    require: "gcc@13.3.1"
   all:
     prefer:
       - "build_type=Release"

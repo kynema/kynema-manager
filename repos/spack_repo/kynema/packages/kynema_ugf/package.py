@@ -16,7 +16,7 @@ class KynemaUgf(bKynemaUgf, CtestPackage):
     requires("+tests", when="+cdash_submit")
 
     def flag_handler(self, name, flags):
-        if name == "cxxflags":
+        if name == "cxxflags" or name == "cflags":
             flags.append("-DUSE_STK_SIMD_NONE")
         return (flags, None, None)
 
