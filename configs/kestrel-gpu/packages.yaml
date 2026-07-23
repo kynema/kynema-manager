@@ -32,7 +32,7 @@ packages:
       - spec: xpmem@master
         prefix: /nopt/nlr/xpmem
   cuda:
-    require: "@=12.8.1"
+    require: "@=13.2.1"
   boost:
     require: "@=1.80.0"
   mpi:
