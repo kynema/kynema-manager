@@ -6,6 +6,8 @@ from spack_repo.kynema.packages.ctest_package.package import *
 class KynemaFmb(bKynemaFmb, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
 
+    depends_on("kokkos+cuda_constexpr", when="+cuda")
+
     requires("+klu")
     requires("+tests", when="+cdash_submit")
 
