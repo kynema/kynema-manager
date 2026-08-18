@@ -6,4 +6,4 @@ spack:
   specs:
     - 'kynema-driver~kynema_sgf_gpu~kynema_ugf_gpu~cuda'
     - 'kynema-driver+kynema_sgf_gpu~kynema_ugf_gpu+cuda cuda_arch=90'
-      #- 'kynema-driver+kynema_sgf_gpu+kynema_ugf_gpu+cuda cuda_arch=90'
+    #- 'kynema-driver+kynema_sgf_gpu+kynema_ugf_gpu+cuda cuda_arch=90'
