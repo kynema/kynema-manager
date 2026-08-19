@@ -44,6 +44,10 @@ function spack-start() {
     # The default python version on Kestrel does not work correctly
     if [[ "${NREL_CLUSTER}" == 'kestrel' ]]; then
       module load cray-python
+      if [[ "${LMOD_SYSTEM_NAME}" == '' ]]; then
+        echo "Kynema-manager does not support the Kestrel RHEL8 nodes. Use the RHEL9 nodes."
+        return
+      fi
     fi
 
     export SPACK_ROOT=${KYNEMA_MANAGER}/spack
