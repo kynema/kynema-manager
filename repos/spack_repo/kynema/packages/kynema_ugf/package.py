@@ -10,6 +10,8 @@ class KynemaUgf(bKynemaUgf, CtestPackage):
 
     depends_on("openfast@5:+cxx+netcdf", when="+openfast")
     depends_on("trilinos+test")
+    depends_on("trilinos+intrepid2", when="+cuda")
+    depends_on("trilinos+intrepid2", when="+rocm")
 
     requires("+hypre")
     requires("+umpire", when="+hypre+cuda")

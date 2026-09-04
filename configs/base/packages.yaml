@@ -6,6 +6,6 @@ packages:
   tioga:
     prefer: [~nodegid]
   trilinos:
-    variants: ~adelus~adios2+amesos2~anasazi~basker+belos~boost~chaco~complex~dtk+exodus~fortran+gtest+hdf5~hypre+ifpack2~intrepid2~mesquite~minitensor+mpi+muelu~mumps~nox~openmp~pamgen~panzer~phalanx~piro~python~rol~sacado~scorec+shards~shylu+stk~stokhos~stratimikos~strumpack~suite-sparse~superlu-dist+test~teko~tempus~thyra+tpetra~x11+zoltan~zoltan2
-    prefer: [~adelus~adios2+amesos2~anasazi~basker+belos~boost~chaco~complex~dtk+exodus~fortran+gtest+hdf5~hypre+ifpack2~intrepid2~mesquite~minitensor+mpi+muelu~mumps~nox~openmp~pamgen~panzer~phalanx~piro~python~rol~sacado~scorec+shards~shylu+stk~stokhos~stratimikos~strumpack~suite-sparse~superlu-dist+test~teko~tempus~thyra+tpetra~x11+zoltan~zoltan2]
+    variants: ~adelus~adios2+amesos2~anasazi~basker+belos~boost~chaco~complex~dtk+exodus~fortran+gtest+hdf5~hypre+ifpack2+intrepid2~mesquite~minitensor+mpi+muelu~mumps~nox~openmp~pamgen~panzer~phalanx~piro~python~rol~sacado~scorec+shards~shylu+stk~stokhos~stratimikos~strumpack~suite-sparse~superlu-dist+test~teko~tempus~thyra+tpetra~x11+zoltan~zoltan2
+    prefer: [~adelus~adios2+amesos2~anasazi~basker+belos~boost~chaco~complex~dtk+exodus~fortran+gtest+hdf5~hypre+ifpack2+intrepid2~mesquite~minitensor+mpi+muelu~mumps~nox~openmp~pamgen~panzer~phalanx~piro~python~rol~sacado~scorec+shards~shylu+stk~stokhos~stratimikos~strumpack~suite-sparse~superlu-dist+test~teko~tempus~thyra+tpetra~x11+zoltan~zoltan2]
     require: "generator=ninja"
