@@ -42,6 +42,9 @@ class Trilinos(bTrilinos):
 
         if spec.satisfies("+cuda"):
             cmake_options.append(self.define("Trilinos_ENABLE_Triutils", False))
+            cmake_options.append(self.define("Trilinos_ENABLE_TESTS", False))
+            cmake_options.append(self.define("STK_ENABLE_TESTS", False))
+            cmake_options.append(self.define("STKUnit_tests_ENABLE_TESTS", False))
 
         if spec.satisfies("+pic"):
             cmake_options.append(self.define("CMAKE_POSITION_INDEPENDENT_CODE", True))
