@@ -1,0 +1,12 @@
+diff --git a/packages/stk/stk_mesh/stk_mesh/base/NgpParallelDataExchange.hpp b/packages/stk/stk_mesh/stk_mesh/base/NgpParallelDataExchange.hpp
+index cd7bd5b76a3..6ea348c80f5 100644
+--- a/packages/stk/stk_mesh/stk_mesh/base/NgpParallelDataExchange.hpp
++++ b/packages/stk/stk_mesh/stk_mesh/base/NgpParallelDataExchange.hpp
+@@ -218,6 +218,7 @@ void fill_device_send_data(const SendDataType& deviceSendData,
+ 
+     auto hostSharedCommMap = mesh.template volatile_fast_shared_comm_map<typename stk::ngp::DeviceSpace::mem_space>(fieldRank, iproc, includeGhosts);
+     unsigned hostSharedCommMapSize = hostSharedCommMap.extent(0);
++    if (hostSharedCommMapSize == 0) { continue; }
+ 
+     const int sendBufferStartIdx = deviceMeshIndicesOffsets(baseProcOffset + meshIndicesCounter);
+     typename SendDataType::value_type* deviceSendDataPtr = deviceSendData.data()+dataBegin+sendBufferStartIdx;

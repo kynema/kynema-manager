@@ -15,6 +15,7 @@ class Trilinos(bTrilinos):
 
     patch("17-1-1-muelu-template.patch", when="@=17.1.1")
     patch("17-1-1-ifpack2-random-shuffle.patch", when="@=17.1.1")
+    patch("17-2-1-stk-out-of-bounds-read.patch", when="@=17.2")
 
     depends_on("cgns~shared+static", when="~shared+exodus+cuda")
 
