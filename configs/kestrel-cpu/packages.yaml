@@ -46,6 +46,10 @@ packages:
         prefix: /nopt/nlr/xpmem
   boost:
     require: "@1.80.0"
+  netcdf-c:
+    require: "+shared build_system=autotools cflags='-std=gnu17'"
+  libxml2:
+    require: "build_system=autotools"
   mpi:
     require: "cray-mpich"
   blas:
