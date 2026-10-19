@@ -110,7 +110,7 @@ def configure_env(args, env_name):
 def make_args(env, ranks):
     args = [
         "-j{}".format(ranks),
-        "SPACK_INSTALL_FLAGS='{}'".format("--show-log-on-error"),
+        "SPACK_INSTALL_FLAGS='{}'".format("--show-log-on-error --keep-stage"),
     ]
     return args
 
@@ -122,9 +122,9 @@ def local_install(args, env_name):
             make(*make_args(e, args.ranks))
         else:
             if args.ranks and (args.ranks > 0):
-                spack_install(f"-j {args.ranks}", capture=False)
+                spack_install("--keep-stage", f"-j {args.ranks}", capture=False)
             else:
-                spack_install(capture=False)
+                spack_install("--keep-stage", capture=False)
 
 def create_slurm_file(args, env_name):
     e = ev.read(env_name)
@@ -139,7 +139,7 @@ def create_slurm_file(args, env_name):
         if args.depfile:
             f.write("make " + " ".join(*make_args(e, args.ranks)+"\n"))
         else:
-            f.write("\nsrun -N $SLURM_JOB_NUM_NODES -n {} spack -e {} install ".format(args.ranks, env_name))
+            f.write("\nsrun -N $SLURM_JOB_NUM_NODES -n {} spack -e {} install --keep-stage ".format(args.ranks, env_name))
         f.write("\nspack -e {} module tcl refresh -y".format(env_name))
 
 
