@@ -1,4 +1,6 @@
 packages:
+  cgns:
+    require: "@develop"
   hypre:
     prefer: [build_system=cmake]
   kynema-sgf:
