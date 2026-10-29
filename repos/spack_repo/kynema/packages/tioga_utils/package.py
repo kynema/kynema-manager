@@ -10,14 +10,16 @@ from spack_repo.kynema.packages.ctest_package.package import *
 
 
 class TiogaUtils(CtestPackage):
-    git = "https://github.com/Kynema/tioga_utils.git"
+    git = "https://github.com/kynema/tioga_utils.git"
 
-    version("kynema", branch="kynema", submodules=True)
+    version("kynema", branch="main", submodules=True)
 
-    depends_on("trilinos")
+    depends_on("c", type="build")
+    depends_on("cxx", type="build")
+    depends_on("mpi")
+    depends_on("trilinos+stk+exodus+shards")
     depends_on("yaml-cpp")
     depends_on("tioga~nodegid")
-    depends_on("kynema-ugf")
     depends_on("yaml-cpp@0.6.0:0.6.3")
  
     def cmake_args(self):
