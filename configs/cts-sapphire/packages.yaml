@@ -44,7 +44,9 @@ packages:
   parallel-netcdf:
     require: "~fortran target=x86_64"
   netcdf-c:
-    require: "+shared build_system=autotools target=x86_64"
+    require: "+shared+parallel-netcdf build_system=autotools cflags='-std=gnu17' target=x86_64"
+  py-netcdf4:
+    require: '@1.7.4+mpi'
   libxml2:
     require: "build_system=autotools"
   mpi:
