@@ -56,8 +56,7 @@ packages:
   hdf5:
     require: "~fortran target=x86_64"
   kynema-sgf:
-    require: "@main"
-    variants: +tiny_profile+hypre
+    require: "@main+tiny_profile+hypre+mpi+netcdf target=x86_64"
   kynema-ugf:
     require: "@main"
   kynema-driver:
