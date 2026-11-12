@@ -7,6 +7,7 @@
 
 from spack.package import *
 from spack_repo.builtin.packages.trilinos.package import Trilinos as bTrilinos
+from spack_repo.kynema.packages.ctest_package.package import *
 find_machine = importlib.import_module("find-kynema-manager")
 
 class Trilinos(bTrilinos):
