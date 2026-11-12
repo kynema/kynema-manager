@@ -7,6 +7,7 @@
 
 from spack.package import *
 from spack_repo.builtin.packages.trilinos.package import Trilinos as bTrilinos
+find_machine = importlib.import_module("find-kynema-manager")
 
 class Trilinos(bTrilinos):
     url = "https://github.com/trilinos/Trilinos/archive/refs/tags/16.2.0.tar.gz"
@@ -46,6 +47,9 @@ class Trilinos(bTrilinos):
             cmake_options.append(self.define("Trilinos_ENABLE_TESTS", False))
             cmake_options.append(self.define("STK_ENABLE_TESTS", False))
             cmake_options.append(self.define("STKUnit_tests_ENABLE_TESTS", False))
+            machine_name, _ = find_machine.get_current_machine()
+            if machine_name == "ellis":
+                cmake_options.append(self.define("Tpetra_ASSUME_GPU_AWARE_MPI", False))
 
         if spec.satisfies("+pic"):
             cmake_options.append(self.define("CMAKE_POSITION_INDEPENDENT_CODE", True))
