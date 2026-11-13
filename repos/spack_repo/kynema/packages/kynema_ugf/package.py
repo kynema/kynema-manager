@@ -9,6 +9,7 @@ class KynemaUgf(bKynemaUgf, CtestPackage):
     variant("unit-tests", default=True, description="Activate unit tests")
 
     depends_on("openfast@5:+cxx+netcdf", when="+openfast")
+    depends_on("trilinos@=17.2.1", when="@=2.4.0")
     depends_on("trilinos+test")
     depends_on("trilinos+intrepid2", when="+cuda")
     depends_on("trilinos+intrepid2", when="+rocm")

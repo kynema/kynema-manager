@@ -5,6 +5,10 @@ packages:
     require: "netlib-lapack"
   lapack:
     require: "netlib-lapack"
+  netlib-lapack:
+    require:
+    - when: "target=m4"
+      spec: 'fflags="-march=armv8-a"'
   c:
     require: "apple-clang"
   cxx:
